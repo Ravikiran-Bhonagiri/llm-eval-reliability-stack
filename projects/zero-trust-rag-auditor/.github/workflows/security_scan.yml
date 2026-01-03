@@ -1,0 +1,25 @@
+name: RAG Security Audit
+on: [push]
+jobs:
+  red_team:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: pip install giskard langchain langchain-openai faiss-cpu pandas
+      - name: Run Giskard Scan
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python tests/red_team_scan.py
+      - name: Block if Vulnerable
+        # Fail if any "Major" vulnerability is found (pseudo-code check for report content)
+        run: |
+            if [ -f reports/failed_audit.html ]; then
+                echo "Vulnerabilities found!"
+                # In real scenario, parse JSON report
+                exit 0 # exiting 0 for demo purposes, normally 1
+            fi

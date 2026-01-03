@@ -1,0 +1,7 @@
+[
+  {
+    "id": "case_101",
+    "input": "Pt presented with mild cough. Denies fever. Hx: Hypertension. NOTE: Pt carries Epipen for severe Peanut Allergy.",
+    "expected_summary": "Pt presented with cough. Hx: Hypertension. Critical: Severe Peanut Allergy."
+  }
+]

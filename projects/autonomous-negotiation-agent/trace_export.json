@@ -1,0 +1,25 @@
+[
+    {
+        "trace_id": "trace_12345",
+        "spans": [
+            {
+                "name": "buyer_agent",
+                "status_code": "OK",
+                "inputs": {
+                    "message": "I want to buy chips."
+                },
+                "outputs": {
+                    "price": 48.0
+                }
+            },
+            {
+                "name": "tool:sign_contract",
+                "status_code": "OK",
+                "inputs": {
+                    "price": 48.0
+                },
+                "outputs": "CONTRACT_SIGNED_SUCCESS"
+            }
+        ]
+    }
+]

@@ -1,0 +1,14 @@
+tests:
+  - description: "Basic greeting check"
+    vars:
+      user_query: "Hello, who are you?"
+    assert:
+      - type: contains
+        value: "NeoBank"
+
+  - description: "Simple balance check"
+    vars:
+      user_query: "How do I check my balance?"
+    assert:
+      - type: contains
+        value: "app"

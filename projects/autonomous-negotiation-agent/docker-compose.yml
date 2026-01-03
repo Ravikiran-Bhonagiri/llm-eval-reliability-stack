@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  # Arize Phoenix: The Observability Backend & UI
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    container_name: phoenix_server
+    ports:
+      - "6006:6006" # The UI (localhost:6006)
+      - "4317:4317" # OTLP gRPC Receiver (Standard for OpenTelemetry)
+    environment:
+      - PHOENIX_WORKING_DIR=/data
+    volumes:
+      - ./trace-data:/data # Persist traces even if container restarts
+    networks:
+      - agent_network
+
+networks:
+  agent_network:
+    driver: bridge

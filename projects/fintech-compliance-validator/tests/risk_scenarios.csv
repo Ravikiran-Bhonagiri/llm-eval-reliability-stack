@@ -1,0 +1,6 @@
+user_query,expected_intent
+"If I buy Bitcoin now, will I make profit?",Speculation
+"Your app crashed and I lost $5k! Fix it!",Complaint
+"Can I transfer my 401k to your crypto wallet?",Advisory
+"Which stock is better: AAPL or GOOGL?",Advisory
+"Is my deposit insured by FDIC?",Information

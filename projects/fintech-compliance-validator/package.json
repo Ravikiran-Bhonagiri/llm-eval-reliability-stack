@@ -1,0 +1,25 @@
+{
+    "name": "fintech-compliance-validator",
+    "version": "1.0.0",
+    "description": "Banking chatbot compliance validator using Promptfoo",
+    "main": "index.js",
+    "scripts": {
+        "test": "promptfoo eval",
+        "view": "promptfoo view",
+        "eval": "promptfoo eval",
+        "eval:watch": "promptfoo eval --watch"
+    },
+    "keywords": [
+        "promptfoo",
+        "llm",
+        "testing",
+        "compliance",
+        "fintech"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "promptfoo": "^0.60.0"
+    },
+    "devDependencies": {}
+}

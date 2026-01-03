@@ -1,0 +1,123 @@
+name: OWASP LLM Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run weekly security scan
+    - cron: '0 0 * * 0'
+
+jobs:
+  owasp-security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run OWASP Ultimate Validator
+        env:
+          LLM_ENDPOINT: ${{ secrets.LLM_ENDPOINT }}
+          RAG_ENDPOINT: ${{ secrets.RAG_ENDPOINT }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd projects/owasp-ultimate-validator
+          python src/orchestrator.py --config config/config.yaml
+      
+      - name: Upload Security Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: owasp-security-reports
+          path: |
+            projects/owasp-ultimate-validator/reports/security_report.html
+            projects/owasp-ultimate-validator/reports/security_report.json
+          retention-days: 90
+      
+      - name: Check for Critical Vulnerabilities
+        run: |
+          cd projects/owasp-ultimate-validator
+          CRITICAL=$(jq '.summary.critical' reports/security_report.json)
+          HIGH=$(jq '.summary.high' reports/security_report.json)
+          
+          echo "Critical vulnerabilities: $CRITICAL"
+          echo "High vulnerabilities: $HIGH"
+          
+          if [ $CRITICAL -gt 0 ]; then
+            echo "❌ CRITICAL vulnerabilities detected!"
+            exit 1
+          fi
+          
+          # Uncomment to fail on HIGH severity issues
+          # if [ $HIGH -gt 0 ]; then
+          #   echo "⚠️ HIGH severity issues detected!"
+          #   exit 1
+          # fi
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('projects/owasp-ultimate-validator/reports/security_report.json', 'utf8'));
+            
+            const statusEmoji = report.summary.critical === 0 ? '✅' : '❌';
+            
+            const comment = `
+            ## ${statusEmoji} OWASP LLM Security Audit
+            
+            **Scan Date**: ${report.scan_metadata.scan_date}
+            **Duration**: ${report.scan_metadata.duration_seconds}s
+            
+            ### Summary
+            - 🔴 **Critical**: ${report.summary.critical}
+            - 🟠 **High**: ${report.summary.high}
+            - 🟡 **Medium**: ${report.summary.medium}
+            - ✅ **Passed**: ${report.summary.pass}
+            
+            ### Tools Used
+            ${report.scan_metadata.tool_stack.join(' • ')}
+            
+            [View Full Report](../actions/runs/${{github.run_id}})
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+      
+      - name: Create Security Badge
+        run: |
+          cd projects/owasp-ultimate-validator
+          CRITICAL=$(jq '.summary.critical' reports/security_report.json)
+          
+          if [ $CRITICAL -eq 0 ]; then
+            echo "SECURITY_STATUS=passing" >> $GITHUB_ENV
+            echo "SECURITY_COLOR=success" >> $GITHUB_ENV
+          else
+            echo "SECURITY_STATUS=failing" >> $GITHUB_ENV
+            echo "SECURITY_COLOR=critical" >> $GITHUB_ENV
+          fi
