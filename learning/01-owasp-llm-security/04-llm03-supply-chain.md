@@ -12,6 +12,8 @@
 
 ## 🕵️ What Is a Supply Chain Attack?
 
+![LLM03 Supply Chain Attack](assets/owasp_supply_chain.png)
+
 **The Core Problem**: You trust code you didn't write.
 
 Modern LLM apps depend on:
