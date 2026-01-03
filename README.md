@@ -1,4 +1,4 @@
-# 🚀 Your Journey to LLM Evaluation Mastery Starts Here
+# 🚀 Journey to LLM Evaluation Mastery
 
 > **From Zero to Hero in 6 Weeks**: A hands-on adventure through the entire LLM evaluation landscape, built by someone who's walked this path and wants to take you along 🎯
 
@@ -72,7 +72,6 @@ Week 6: 👀 Production Observability
 - ❌ Boring lectures with no hands-on practice
 
 ### ✅ What This IS
-- ✅ **Complete**: 882 KB of battle-tested content
 - ✅ **Practical**: 150+ working code examples
 - ✅ **Production-Ready**: 6 real-world projects
 - ✅ **Comprehensive**: ALL major frameworks in one place
@@ -137,7 +136,7 @@ Immediate Value →
 
 ## 🎁 What's Inside? (The Treasure Map)
 
-### 🗝️ Module 1: OWASP LLM Security (215 KB)
+### 🗝️ Module 1: OWASP LLM Security
 **Your Mission**: Become the security person everyone asks for help
 
 **What You'll Build**:
@@ -153,7 +152,7 @@ Immediate Value →
 
 ---
 
-### 🗝️ Module 2: Promptfoo Testing (139 KB)
+### 🗝️ Module 2: Promptfoo Testing
 **Your Mission**: Never ship a broken prompt again
 
 **What You'll Build**:
@@ -169,7 +168,7 @@ Immediate Value →
 
 ---
 
-### 🗝️ Module 3: Giskard Security (62 KB)
+### 🗝️ Module 3: Giskard Security
 **Your Mission**: Red-team AI systems like a pentester
 
 **What You'll Build**:
@@ -185,7 +184,7 @@ Immediate Value →
 
 ---
 
-### 🗝️ Module 4: DeepEval Unit Testing (223 KB)
+### 🗝️ Module 4: DeepEval Unit Testing
 **Your Mission**: Write pytest tests for AI (the future is here!)
 
 **What You'll Build**:
@@ -193,7 +192,6 @@ Immediate Value →
 - 🏥 Medical AI with safety metrics
 - 🎨 Custom evaluation criteria with G-Eval
 
-**Secret Weapon**: Largest module (223 KB) = deepest expertise
 
 **Career Impact**: Testing is how you get AI into production safely 🚀
 
@@ -201,7 +199,7 @@ Immediate Value →
 
 ---
 
-### 🗝️ Module 5: RAGAS Optimization (160 KB)
+### 🗝️ Module 5: RAGAS Optimization
 **Your Mission**: Turn guesswork into science
 
 **What You'll Build**:
@@ -217,7 +215,7 @@ Immediate Value →
 
 ---
 
-### 🗝️ Module 6: Phoenix Observability (82 KB)
+### 🗝️ Module 6: Phoenix Observability
 **Your Mission**: See inside the AI black box
 
 **What You'll Build**:
@@ -225,7 +223,7 @@ Immediate Value →
 - 🤖 Multi-agent debugger
 - 💰 Cost tracking and monitoring
 
-**Secret Weapon**: 61 KB OpsMonitor example (biggest in repo!)
+**Secret Weapon**: OpsMonitor project
 
 **Career Impact**: Production AI = senior engineer money 💸
 
@@ -289,7 +287,6 @@ Each project = New resume bullet + Interview story + GitHub showcase
 
 ### Content That Exceeds Expectations
 ```
-📚 882 KB of content (400,000 words)
 📖 82 complete guides (nothing missing!)
 💻 150+ working code examples (copy-paste ready)
 🎨 22 professional diagrams (visual learning)
@@ -388,7 +385,6 @@ After:  "LLM Evaluation Engineer | Security + Testing + Optimization
 ```
 LLM Evaluation & Reliability Platform Creator
 • Comprehensive platform covering 6 major LLM frameworks
-• 882 KB of production-grade content (400,000 words)
 • 6 deployed projects spanning finance, healthcare, legal, security
 • Portfolio exceeds professional bootcamp standards by 8-10x
 ```
