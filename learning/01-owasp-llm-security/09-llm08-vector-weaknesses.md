@@ -1,5 +1,7 @@
 # LLM08: Vector and Embedding Weaknesses - The Poisoned Search
 
+![LLM08 Vector Weaknesses](assets/owasp_vector_weaknesses.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟡 MEDIUM  

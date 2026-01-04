@@ -1,5 +1,7 @@
 # LLM10: Unbounded Consumption - The $10,000 Query
 
+![LLM10 DoS Attack](assets/owasp_unbounded_consumption.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟠 HIGH  

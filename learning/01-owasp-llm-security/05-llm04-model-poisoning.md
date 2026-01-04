@@ -11,6 +11,8 @@
 
 ## 🕵️ What Is Training Data Poisoning?
 
+![LLM04 Data Poisoning Attack](assets/owasp_data_poisoning.png)
+
 Think of it like this: You're teaching a chef by giving them recipes. But what if 1% of those recipes secretly contain poison triggers?
 
 **Traditional Security Analogy**: Backdoor in compiled code  

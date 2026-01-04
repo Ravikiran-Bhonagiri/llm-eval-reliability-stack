@@ -1,5 +1,7 @@
 # LLM09: Misinformation - When AI Lies Confidently
 
+![LLM09 Misinformation](assets/owasp_misinformation.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟠 HIGH  

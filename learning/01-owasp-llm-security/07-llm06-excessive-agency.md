@@ -1,5 +1,7 @@
 # LLM06: Excessive Agency - The Runaway Agent
 
+![LLM06 Excessive Agency](assets/owasp_excessive_agency.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟠 HIGH  

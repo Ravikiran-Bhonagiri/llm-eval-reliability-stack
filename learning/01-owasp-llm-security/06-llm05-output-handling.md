@@ -1,5 +1,7 @@
 # LLM05: Improper Output Handling - When AI Becomes a Weapon
 
+![LLM05 Output Handling](assets/owasp_output_handling.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟠 HIGH  

@@ -1,5 +1,7 @@
 # LLM07: System Prompt Leakage - The Secret Revealed
 
+![LLM07 Prompt Leakage](assets/owasp_prompt_leakage.png)
+
 ## 🔍 The Crime Scene
 
 **Threat Level**: 🟡 MEDIUM  
